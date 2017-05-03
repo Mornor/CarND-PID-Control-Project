@@ -34,10 +34,10 @@ int main()
 
   // Initialize the PID instances and its variables.
   PID pid;
-  double kp = 0.225;
-  double ki = 0.001;
-  double kd = 16.0;  
-  pid.Init(kp, ki, kd); 
+  double kp = 0.2;
+  double ki = 0.0001;
+  double kd = 20;  
+  pid.Init(kp, ki, kd);
 
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
