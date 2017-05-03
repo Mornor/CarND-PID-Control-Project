@@ -32,11 +32,15 @@ void PID::Init(double Kp, double Ki, double Kd) {
 }
 
 void PID::UpdateError(double cte) {
-
+	if (p_error == numeric_limits<double>::max())
+		this->p_error = cte;
+    this->p_error = cte;
+    this->i_error += cte;
+    this->d_error = cte - p_error;  
 }
 
 double PID::TotalError() {
 	// Using: -tau_p * CTE - tau_d * diff_CTE - tau_i * int_CTE
-	return (this->Kp * this->p_error) - (this->Kd * this->d_error) - (this->Ki * this->i_error); 
+	return (this->Kp * this->p_error) - (this->Kd * this->d_error) - (this->Ki * this->i_error); 	
 }
 
