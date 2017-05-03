@@ -32,9 +32,11 @@ void PID::Init(double Kp, double Ki, double Kd) {
 }
 
 void PID::UpdateError(double cte) {
+
 }
 
 double PID::TotalError() {
-	return 0.0; 
+	// Using: -tau_p * CTE - tau_d * diff_CTE - tau_i * int_CTE
+	return (this->Kp * this->p_error) - (this->Kd * this->d_error) - (this->Ki * this->i_error); 
 }
 
