@@ -19,7 +19,7 @@ void PID::Init(double Kp, double Ki, double Kd) {
 
 	// Init the Proportionnal error to a high value
 	// Because, at the very beginning, I assume the car is far from the CTE 
-	p_error = 0.0;  
+	p_error = numeric_limits<double>::max();  
 
 	// Init the Integral term to 0
 	// Because, at the very beginning, the total area (Integral definition) between the position of the car 
@@ -34,9 +34,16 @@ void PID::Init(double Kp, double Ki, double Kd) {
 void PID::UpdateError(double cte) {
 	if (p_error == numeric_limits<double>::max())
 		p_error = cte;
+	d_error = cte - p_error; 
 	p_error = cte;
-	i_error += cte;
-	d_error = cte - p_error;  
+	i_error += cte; 
+
+	/*
+	p_error_ = cte;
+  	d_error_ = (cte - pre_cte);
+  	i_error_ += cte;
+  	pre_cte = cte;
+	*/
 }
 
 double PID::TotalError() {
