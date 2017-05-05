@@ -4,7 +4,18 @@
 
 ---
 
-## Dependencies
+### Overview
+This is the 9th project of the [Self Driving Car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013) I am taking part. <br>
+The aim of this project was to build a PID controller in order to drive a car on a simulator. 
+
+
+### Roles of P, I, and D
+- <b>Proportionnal coefficient (P)</b><br/>
+- <b>Integral coefficient (I)</b><br/>
+The role of the I's term is to compensate systematic bias. For example if the steering of the car has been wrongly fixed and has a tendancy to steer a bit to the right, the I's term will compensate that. It will accumulate the value of the surface between the position of the car and the CTE over time, and multiply this by the value of the I's term. 
+- <b>Differential coefficient (D)</b><br/>
+
+### Dependencies
 
 * cmake >= 3.5
  * All OSes: [click here for installation instructions](https://cmake.org/install/)
@@ -21,7 +32,7 @@
   * If you run OSX and have homebrew installed you can just run the ./install-mac.sh script to install this
 * Simulator. You can download these from the [project intro page](https://github.com/udacity/CarND-PID-Control-Project/releases) in the classroom.
 
-## Basic Build Instructions
+### Basic Build Instructions
 
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
