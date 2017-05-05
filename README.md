@@ -15,6 +15,7 @@ THe role of P is to make the car "drifting" toward the CTE, by multiplying the C
 - <b>Integral coefficient (I)</b><br/>
 The role of the I's term is to compensate systematic bias. For example if the steering of the car has been wrongly fixed and has a tendancy to steer a bit to the right, the I's term will compensate that. It will accumulate the value of the surface between the position of the car and the CTE over time, and multiply this by the value of the I's term. 
 - <b>Differential coefficient (D)</b><br/>
+Once the car began to steer tomards the CTE, it will be aware of it and start to counter-steer. This is done by the differential term, wich goes smaller as the car drives towards the CTE. This will avoid the over-shooting previously caused by the P controller alone.  
 
 ### Dependencies
 
