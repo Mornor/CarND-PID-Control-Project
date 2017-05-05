@@ -11,6 +11,7 @@ The aim of this project was to build a PID controller in order to drive a car on
 
 ### Roles of P, I, and D
 - <b>Proportionnal coefficient (P)</b><br/>
+THe role of P is to make the car "drifting" toward the CTE, by multiplying the CTE by P value. However, it will never quite reach the CTE, but will oscillate around it. This will results in a not so-safe driving behaviour. That is why we will also use I and D terms.
 - <b>Integral coefficient (I)</b><br/>
 The role of the I's term is to compensate systematic bias. For example if the steering of the car has been wrongly fixed and has a tendancy to steer a bit to the right, the I's term will compensate that. It will accumulate the value of the surface between the position of the car and the CTE over time, and multiply this by the value of the I's term. 
 - <b>Differential coefficient (D)</b><br/>
