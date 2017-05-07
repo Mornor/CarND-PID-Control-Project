@@ -11,11 +11,11 @@ The aim of this project was to build a PID controller in order to drive a car on
 
 ### Roles of P, I, and D
 - <b>Proportionnal coefficient (P)</b><br/>
-THe role of P is to make the car "drifting" toward the CTE, by multiplying the CTE by P value. However, it will never quite reach the CTE, but will oscillate around it. This will results in a not so-safe driving behaviour. That is why we will also use I and D terms.
+THe role of P is to make the car "drifting" toward the CTE, by multiplying the CTE by P value (I find by trial/error that `0.225` was a good value). However, it will never quite reach the CTE, but will oscillate around it. This will results in a not so-safe driving behaviour. That is why we will also use I and D terms.
 - <b>Integral coefficient (I)</b><br/>
-The role of the I's term is to compensate systematic bias. For example if the steering of the car has been wrongly fixed and has a tendancy to steer a bit to the right, the I's term will compensate that. It will accumulate the value of the surface between the position of the car and the CTE over time, and multiply this by the value of the I's term. 
-- <b>Differential coefficient (D)</b><br/>
-Once the car began to steer tomards the CTE, it will be aware of it and start to counter-steer. This is done by the differential term, wich goes smaller as the car drives towards the CTE. This will avoid the over-shooting previously caused by the P controller alone.  
+The role of the I's term is to compensate systematic bias. For example if the steering of the car has been wrongly fixed and has a tendancy to steer a bit to the right, the I's term will compensate that. It will accumulate the value of the surface between the position of the car and the CTE over time, and multiply this by the value of the I's term. I gave chosen to first set this value to a very small number since theres is no sysmtematic bias coded in the simulator. It appeared later that i obtained better results by just setting it to 0. 
+- <b>Differential coefficient (D)</b><br/
+Once the car began to steer tomards the CTE, it will be aware of it and start to counter-steer. This is done by the differential term, wich goes smaller as the car drives towards the CTE. This will avoid the over-shooting previously caused by the P controller alone. My first try was to set it to `3.0`, but I found out it has little effect to the simulator when setiing higher value. 
 
 ### Dependencies
 
