@@ -4,10 +4,6 @@
 
 using namespace std;
 
-/*
-* TODO: Complete the PID class.
-*/
-
 PID::PID() {}
 
 PID::~PID() {}
@@ -37,13 +33,6 @@ void PID::UpdateError(double cte) {
 	d_error = cte - p_error; 
 	p_error = cte;
 	i_error += cte; 
-
-	/*
-	p_error_ = cte;
-  	d_error_ = (cte - pre_cte);
-  	i_error_ += cte;
-  	pre_cte = cte;
-	*/
 }
 
 double PID::TotalError() {
